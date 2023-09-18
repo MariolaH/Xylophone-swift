@@ -19,13 +19,19 @@ class ViewController: UIViewController {
     }
     //identy of the button that is tapped gets sent over to this func that it triggers inside this input.
     //sender in the terminal shows all info for the button that was pressed ie, title, color, tag
+    //sender: UIButton - we know sender is a button - C, D, E, F, G, A, B
     @IBAction func KeyPressed(_ sender: UIButton) {
         // It retrieves the title (text) of the button that was pressed with sender.currentTitle! and passes it to the playSound function.
+        print(" The butto title is: \(sender.title(for: .normal))")
+        //If click on the C button, sender.CurrentTitle will be equal to C
         playSound(soundName: sender.currentTitle!)
     }
     
     //This function takes a soundName parameter (a string) and attempts to locate a file with that name and a "wav" extension in the app's main bundle (its resources).
+    //C becomes the soundName
     func playSound(soundName: String) {
+        //use soundName that gets passed in, soundName can be anyone titles of the buttons
+        //C gets put in the soundName place, forResource: soundName... then plays C.wave
          let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
         //an attempt is made to initialize a new instance of AVAudioPlayer using the initializer init(contentsOf:)
         //The init(contentsOf:) initializer is designed to create a new audio player instance from the contents of a specified URL

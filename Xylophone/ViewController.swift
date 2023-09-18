@@ -25,6 +25,15 @@ class ViewController: UIViewController {
         print(" The butto title is: \(sender.title(for: .normal))")
         //If click on the C button, sender.CurrentTitle will be equal to C
         playSound(soundName: sender.currentTitle!)
+        //this make the buttons opacity that was pressed half its color
+        sender.alpha = 0.5
+        print("start")
+        //creates a 3 second delay, after 3 seconds the code in the block is executed
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            print("end")
+            //brings opacity back to full color after 3 seconds
+            sender.alpha = 1
+        }
     }
     
     //This function takes a soundName parameter (a string) and attempts to locate a file with that name and a "wav" extension in the app's main bundle (its resources).
